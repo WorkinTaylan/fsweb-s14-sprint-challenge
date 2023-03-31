@@ -18,8 +18,20 @@ router.get("/", async (req,res,next)=>{
     }
 });
 
-router.post("/resources", (req,res,next)=>{
-    
+router.post("/", async (req,res,next)=>{
+    const {resource_name}=req.body;
+    try {
+
+    if(!req.body){
+        res.status(400).json({message:"resource_name nerede?"})
+    }else{
+        const newProj= await ResourceModel.postNewResource(req.body)
+        res.status(201).json(newProj)
+    }
+
+    } catch (error) {
+        next(error)
+    }
 })
 
 module.exports=router;

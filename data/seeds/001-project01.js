@@ -5,9 +5,9 @@
 exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('projects').insert([
-    {project_name: 'Frontend-Final', project_description:"Prepare personal website"},
-    {project_name: 'Backend-Final', project_description:"connect server to your website"},
-    {project_name: 'Learn Language', project_description:"Learn Chinese"},
+    {project_name: 'Frontend-Final', project_description:"Prepare personal website", project_completed:false},
+    {project_name: 'Backend-Final', project_description:"connect server to your website",project_completed:false},
+    {project_name: 'Learn Language', project_description:"Learn Chinese",project_completed:false},
   ]);
 
   await knex('resources').insert([

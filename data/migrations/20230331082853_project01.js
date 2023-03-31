@@ -31,8 +31,8 @@ exports.up = function(knex) {
             .unsigned()
             .references("project_id")
             .inTable("projects")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE")
+        .onUpdate("CASCADE") //ilişkili yerleri güncelliyor
+        .onDelete("CASCADE")  //ilişkili yerleri siliyor.
     })
     .createTable("project_resources", tbl=>{
         tbl.increments("project_resource_id")

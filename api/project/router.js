@@ -17,4 +17,22 @@ router.get("/", async(req,res,next)=>{
     }
 });
 
+router.post("/", async(req,res,next)=>{
+
+    const {project_name}=req.body;
+
+    try{
+        let postProject=await ProjectsModels.postProject(req.body);
+        if(!postProject){
+            res.status(400).json({message:"where is my buddy"})
+        }
+        else{
+            res.json(postProject)
+        }
+    }
+    catch(error){
+        next(error)
+    }
+});
+
 module.exports=router;
