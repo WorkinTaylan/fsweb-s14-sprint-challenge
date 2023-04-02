@@ -1,6 +1,7 @@
 //  `/api/projects` router buraya
 const router=require("express").Router();
 const ProjectsModels=require("../project/model")
+const {UniqueProjectName}=require("./middlew")
 
 router.get("/", async(req,res,next)=>{
     try{
@@ -17,9 +18,7 @@ router.get("/", async(req,res,next)=>{
     }
 });
 
-router.post("/", async(req,res,next)=>{
-
-    const {project_name}=req.body;
+router.post("/", UniqueProjectName, async(req,res,next)=>{
 
     try{
         let postProject=await ProjectsModels.postProject(req.body);

@@ -19,7 +19,6 @@ router.get("/", async (req,res,next)=>{
 });
 
 router.post("/", async (req,res,next)=>{
-    const {resource_name}=req.body;
     try {
 
     if(!req.body){
